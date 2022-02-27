@@ -69,3 +69,31 @@ For each ensemble learner algorithm, complete the following steps (using random_
 3. Print the confusion matrix from sklearn.metrics.
 4. Generate a classication report using the imbalanced_classification_report from imbalanced-learn.
 5. For the Balanced Random Forest Classifier onely, print the feature importance sorted in descending order (most important feature to least important) along with the feature score
+
+| Algorithm | Balanced Accuracy Score | Confusion Matrix |
+|:--|:--|:--|
+| Random Forest | 0.67288 | [[ 63, 38],[4755, 12349]] |
+| Easy Ensemble Classifier | 0.91409 | [[93, 8],[ 1584, 15520]] |
+
+### Classification Report Results
+
+<strong>
+
+  1. Random Forest
+
+  2. Easy Ensemble Classifier
+  
+</strong>
+
+
+### Top 10 Features Sorted by Importance (Random Forest)
+1. Last Payment Amount (11.39)
+2. Total Payment (7.82)
+3. Total Received Principal (5.62)
+4. Total Payment Inv (3.54)
+5. Total Received Interest (2.97)
+6. Total High Credit Limit (2.48)
+7. Months since Recent (2.25)
+8. Debt to Income (2.08)
+9. Interest Rate (1.94)
+10. BC Util (1.93)
