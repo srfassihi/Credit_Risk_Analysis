@@ -5,25 +5,67 @@ LendingClub, a peer-to-peer lending services company, has assigned the task of a
 - scikit-learn
 
 ## Overview
-The following algorithms were used for the credit card data analysis:
+
+### Data Cleaning
+First step in the process of analyzing the dataset was to load and clean the 'Loan Stats.csv' file provided:
+1. Read Raw CSV file to Dataframe
+2. Add Column Header Names
+3. Drop Null columns and rows
+4. Convert interest rate % to float
+5. Convert the target column values to low_risk and high_risk
+
+### Target of Supervised Learning
+- Target: Loan Status (High or Low Risk)
+- Features: Other Columns (Ex. Loan Amount, Interest Rate, Annual Income, Debt to Income Ratio, etc.)
+
+## Use Resampling Models to Predict Credit Risk
+
+Compare various ML algorithms to determine which results in the best performance. The following algorithms were used for the credit card data analysis:
 
 | Library | Oversample | Undersample | Combination | 
 |:---|:---|:---|:---|
 | Imbalanced Learn | [RandomOverSampler](https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.RandomOverSampler.html) <br> [SMOTE](https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html)| [Cluster Centroids](https://imbalanced-learn.org/stable/references/generated/imblearn.under_sampling.ClusterCentroids.html) | [SMOTEEN](https://imbalanced-learn.org/stable/references/generated/imblearn.combine.SMOTEENN.html)
 
+Follow the same 5 steps for each algorithm (using random_state = 1):
+1. View the count of the target classes using Counter from the collections library.
+2. Use the resampled data to train a logistic regression model.
+3. Calculate the balanced accuracy score from sklearn.metrics.
+4. Print the confusion matrix from sklearn.metrics.
+5. Generate a classication report using the imbalanced_classification_report from imbalanced-learn.
+
+### Algorithm Results
+| Algorithm | Sampling Type | Balanced Accuracy Score | Confusion Matrix |
+|:--|:--|:--|:--|
+| Naive Random | Oversampling | 0.64472 | [[ 71, 30],[ 7073, 10031]] |
+| SMOTE | Oversampling | 0.66231 | [[ 64, 37],[ 5286, 11818]] | 
+| Cluster Centroids| Undersampling | 0.66231 | [[ 70, 31], [10341, 6763]] |
+| SMOTEEN | Combination | 0.54424 | [[ 82, 19], [7593, 9511]] |
+
+### Classification Report Results
+
+<strong>
+
+  1. Naive Random
+
+  2. SMOTE
+
+  3. Cluster Centroids
+
+  4. SMOTEEN
+  
+</strong>
+
+
+## Ensemble Classifiers to Predict Credit Risk
 The next step is to compare different machine learning models to reduce bias:
 | Library | ML Model | 
 |:---|:---|
 | Scikit-Learn | [BalancedRandomForest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
 | Imbalanced Learn | [Easy Ensemble Classifier](https://imbalanced-learn.org/stable/references/generated/imblearn.ensemble.EasyEnsembleClassifier.html)
 
-The results from each of the models is as follows:
-
-## Results
-
-### Resampling
-First step in the process of analyzing the dataset was to load and clean the 'Loan Stats.csv' file provided:
-1. Read Raw CSV file to Dataframe
-2. Add Column Header Names
-3. Drop Null columns and rows
-4. 
+For each ensemble learner algorithm, complete the following steps (using random_state = 1):
+1. Train the model using the training data.
+2. Calculate the balanced accuracy score from sklearn.metrics.
+3. Print the confusion matrix from sklearn.metrics.
+4. Generate a classication report using the imbalanced_classification_report from imbalanced-learn.
+5. For the Balanced Random Forest Classifier onely, print the feature importance sorted in descending order (most important feature to least important) along with the feature score
