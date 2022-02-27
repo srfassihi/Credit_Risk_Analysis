@@ -46,15 +46,14 @@ Follow the same 5 steps for each algorithm (using random_state = 1):
 <strong>
 
   1. Naive Random
-
+![Naive Random](https://github.com/srfassihi/Credit_Risk_Analysis/blob/98ed52ba38fdc9428296c1d2d8d9d267fef4d47b/images/Naive%20Random%20Oversampling.png)
   2. SMOTE
-
+![SMOTE](https://github.com/srfassihi/Credit_Risk_Analysis/blob/98ed52ba38fdc9428296c1d2d8d9d267fef4d47b/images/SMOTE%20Oversampling.png)
   3. Cluster Centroids
-
+![Cluster Centroids](https://github.com/srfassihi/Credit_Risk_Analysis/blob/98ed52ba38fdc9428296c1d2d8d9d267fef4d47b/images/Cluster%20Centroids%20Undersampling.png)
   4. SMOTEEN
-  
+ ![SMOTEEN](https://github.com/srfassihi/Credit_Risk_Analysis/blob/98ed52ba38fdc9428296c1d2d8d9d267fef4d47b/images/SMOTEEN.png) 
 </strong>
-
 
 ## Ensemble Classifiers to Predict Credit Risk
 The next step is to compare different machine learning models to reduce bias:
@@ -80,11 +79,10 @@ For each ensemble learner algorithm, complete the following steps (using random_
 <strong>
 
   1. Random Forest
-
+![Random Forest](https://github.com/srfassihi/Credit_Risk_Analysis/blob/98ed52ba38fdc9428296c1d2d8d9d267fef4d47b/images/Random%20Forest.png)
   2. Easy Ensemble Classifier
-  
+![Easy Ensemble](https://github.com/srfassihi/Credit_Risk_Analysis/blob/98ed52ba38fdc9428296c1d2d8d9d267fef4d47b/images/Easy%20Ensemble%20Classifier.png)  
 </strong>
-
 
 ### Top 10 Features Sorted by Importance (Random Forest)
 1. Last Payment Amount (11.39)
@@ -97,3 +95,6 @@ For each ensemble learner algorithm, complete the following steps (using random_
 8. Debt to Income (2.08)
 9. Interest Rate (1.94)
 10. BC Util (1.93)
+
+## Interpreting the Results
+By reviewing all the model results, the *Easy Ensemble Classifier* model gave the best results in terms of accuracy and precision for both High Risk and Low Risk applicants. The sensitivity rate was highest amongst the other models. Therefore we recommend the use of this model for determining which loan applicants fall under the high or low risk category, based on the Loan dataset provided. 
